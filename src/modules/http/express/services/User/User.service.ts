@@ -2,6 +2,7 @@ import {UserModel} from "@models";
 import {ApiError} from "@exceptions";
 import {IUser} from "@/interfaces/User/IUser";
 import {IResponseStructure} from "@/interfaces/Response/IResponseStructure";
+import {ISteamUser} from "@/interfaces/User/ISteamUser";
 
 class UserService {
   page: number = 0;
@@ -22,8 +23,8 @@ class UserService {
     }
   }
 
-  async createOrUpdate(user: IUser) {
-    const userData: IUser = await this.readBysteamid(user.steamid);
+  async createOrUpdate(user: ISteamUser) {
+    const userData: IUser = await this.readBySteamId(user.steamid);
 
     // await this.setLocalImages(user);
 
@@ -81,7 +82,7 @@ class UserService {
    * @param steamid - steam id записи
    * @returns Promise<IUser> - объект записи
    */
-  async readBysteamid(steamid: string) {
+  async readBySteamId(steamid: string) {
     try {
       return await UserModel.findOne({ steamid });
     } catch(e) {

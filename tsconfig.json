@@ -11,7 +11,16 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@exceptions": ["src/exceptions"],
+      "@middlewares": ["src/modules/http/express/middlewares"],
+      "@routes": ["src/modules/http/express/routes"],
+      "@controllers": ["src/modules/http/express/controllers"],
+      "@engine": ["src/engine"],
+      "@modules": ["src/modules"],
+      "@interfaces":  ["src/interfaces"],
+      "@models":  ["src/modules/mongodb/models"],
+      "@services":  ["src/http/express/services"]
     },
   },
   "ts-node": {
